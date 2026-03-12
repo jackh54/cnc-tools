@@ -1,5 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import CalculatorPanel from './components/CalculatorPanel'
+import CncCodeExplorer from './components/CncCodeExplorer'
+import ProcessPlanner from './components/ProcessPlanner'
 import ThemeToggle from './components/ThemeToggle'
 import { materialData, processChecklist, skills, toolbox } from './data/content'
 
@@ -60,6 +62,9 @@ function App() {
               <a href="#calculators" className="button primary">
                 Open calculators
               </a>
+              <a href="#process-planner" className="button secondary">
+                Advanced planner
+              </a>
               <a href="#skills" className="button secondary">
                 Build skills
               </a>
@@ -87,6 +92,8 @@ function App() {
 
       <main className="content-grid">
         <CalculatorPanel />
+        <ProcessPlanner />
+        <CncCodeExplorer />
 
         <section className="card" id="skills" aria-labelledby="skills-title">
           <div className="section-header">
@@ -142,6 +149,7 @@ function App() {
                     <th>Tooling</th>
                     <th>SFM Range</th>
                     <th>Coolant</th>
+                    <th>Unit Power</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -151,6 +159,7 @@ function App() {
                       <td>{row.tooling}</td>
                       <td>{row.sfmRange}</td>
                       <td>{row.coolant}</td>
+                      <td>{row.unitPowerHpPerIn3Min} hp/in³/min</td>
                     </tr>
                   ))}
                 </tbody>

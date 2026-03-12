@@ -201,7 +201,8 @@ h1 {
 
 .calculator-grid,
 .tool-grid,
-.skill-grid {
+.skill-grid,
+.code-grid {
   margin-top: 1rem;
   display: grid;
   gap: 0.8rem;
@@ -210,7 +211,11 @@ h1 {
 
 .calculator,
 .skill-card,
-.tool-card {
+.tool-card,
+.planner-form,
+.planner-output,
+.visual-card,
+.code-card {
   border: 1px solid var(--border);
   border-radius: 0.9rem;
   background: var(--surface-strong);
@@ -237,7 +242,8 @@ label {
   color: var(--text-muted);
 }
 
-input {
+input,
+select {
   border: 1px solid var(--border);
   border-radius: 0.55rem;
   padding: 0.48rem 0.58rem;
@@ -282,6 +288,125 @@ output {
 
 .tip span {
   color: var(--text);
+  font-weight: 700;
+}
+
+.planner-grid,
+.visual-grid {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.8rem;
+}
+
+.input-grid {
+  margin-top: 0.2rem;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.input-grid.two-col {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.result-grid {
+  margin: 0.75rem 0 0;
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.result-grid div {
+  border: 1px solid var(--border);
+  border-radius: 0.7rem;
+  background: var(--surface);
+  padding: 0.5rem 0.55rem;
+}
+
+.result-grid dt {
+  color: var(--text-muted);
+  font-size: 0.75rem;
+}
+
+.result-grid dd {
+  margin: 0.2rem 0 0;
+  font-weight: 700;
+}
+
+.result-note {
+  margin-top: 0.7rem;
+  color: var(--text-muted);
+  font-size: 0.86rem;
+}
+
+.chart-svg {
+  width: 100%;
+  height: auto;
+}
+
+.chart-axis {
+  stroke: var(--border);
+  stroke-width: 1.5;
+}
+
+.chart-line {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 2.5;
+}
+
+.visual-caption {
+  margin-top: 0.6rem;
+  color: var(--text-muted);
+  font-size: 0.88rem;
+}
+
+.engagement-wrap + .engagement-wrap {
+  margin-top: 1rem;
+}
+
+.meter-label {
+  margin: 0;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.meter-track {
+  margin-top: 0.35rem;
+  border-radius: 999px;
+  height: 0.72rem;
+  width: 100%;
+  background: var(--surface-muted);
+  overflow: hidden;
+}
+
+.meter-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #3dcf7c, #49a5ff);
+}
+
+.meter-fill-warn {
+  background: linear-gradient(90deg, #49a5ff, #f1c75b, #e06a6a);
+}
+
+.meter-value {
+  margin: 0.4rem 0 0;
+  font-size: 0.84rem;
+  color: var(--text-muted);
+}
+
+.reference-controls {
+  margin-top: 0.9rem;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 0.65rem;
+}
+
+.code-title {
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   font-weight: 700;
 }
 
@@ -335,7 +460,13 @@ th {
   .split-grid,
   .calculator-grid,
   .tool-grid,
-  .skill-grid {
+  .skill-grid,
+  .code-grid,
+  .planner-grid,
+  .visual-grid,
+  .result-grid,
+  .input-grid.two-col,
+  .reference-controls {
     grid-template-columns: 1fr;
   }
 
