@@ -17,6 +17,14 @@ export type MaterialSurfaceSpeed = {
   tooling: string
   sfmRange: string
   coolant: string
+  unitPowerHpPerIn3Min: number
+}
+
+export type CncCodeReference = {
+  code: string
+  group: 'Motion' | 'Compensation' | 'Cycles' | 'Machine'
+  description: string
+  usage: string
 }
 
 export const skills: Skill[] = [
@@ -99,24 +107,28 @@ export const materialData: MaterialSurfaceSpeed[] = [
     tooling: 'Carbide end mill',
     sfmRange: '600 - 1200',
     coolant: 'Flood or MQL',
+    unitPowerHpPerIn3Min: 0.3,
   },
   {
     material: '1018 Mild Steel',
     tooling: 'Carbide end mill',
     sfmRange: '250 - 450',
     coolant: 'Flood preferred',
+    unitPowerHpPerIn3Min: 1,
   },
   {
     material: '304 Stainless',
     tooling: 'Carbide end mill',
     sfmRange: '150 - 300',
     coolant: 'High-pressure preferred',
+    unitPowerHpPerIn3Min: 1.4,
   },
   {
     material: 'Ti-6Al-4V',
     tooling: 'Variable flute carbide',
     sfmRange: '80 - 180',
     coolant: 'Through-tool',
+    unitPowerHpPerIn3Min: 1.8,
   },
 ]
 
@@ -126,4 +138,73 @@ export const processChecklist = [
   'Load tools, check runout, and set tool length/radius offsets.',
   'Run simulation, then machine dry run above stock.',
   'Inspect first article before releasing full production run.',
+]
+
+export const codeReference: CncCodeReference[] = [
+  {
+    code: 'G0',
+    group: 'Motion',
+    description: 'Rapid positioning move',
+    usage: 'Use only with verified clearances above fixtures and stock.',
+  },
+  {
+    code: 'G1',
+    group: 'Motion',
+    description: 'Linear feed move',
+    usage: 'Primary cutting move using active feed rate (F).',
+  },
+  {
+    code: 'G2 / G3',
+    group: 'Motion',
+    description: 'Clockwise / counterclockwise arc interpolation',
+    usage: 'Confirm I/J/K or R mode expected by controller post settings.',
+  },
+  {
+    code: 'G41 / G42',
+    group: 'Compensation',
+    description: 'Cutter radius compensation left / right',
+    usage: 'Lead in/out cleanly to avoid overtravel alarms or wall marks.',
+  },
+  {
+    code: 'G43',
+    group: 'Compensation',
+    description: 'Tool length compensation positive',
+    usage: 'Pair with correct H offset before every Z approach.',
+  },
+  {
+    code: 'G81',
+    group: 'Cycles',
+    description: 'Simple drilling cycle',
+    usage: 'Best for shallow holes where pecking is not required.',
+  },
+  {
+    code: 'G83',
+    group: 'Cycles',
+    description: 'Peck drilling cycle',
+    usage: 'Use for deeper holes to break chips and improve evacuation.',
+  },
+  {
+    code: 'G84',
+    group: 'Cycles',
+    description: 'Tapping cycle',
+    usage: 'Confirm spindle orientation and synchronized feed before production.',
+  },
+  {
+    code: 'M6',
+    group: 'Machine',
+    description: 'Tool change',
+    usage: 'Validate preload and pot assignment in setup sheet.',
+  },
+  {
+    code: 'M8 / M9',
+    group: 'Machine',
+    description: 'Coolant on / off',
+    usage: 'Verify coolant state before entering deep pockets or drilling.',
+  },
+  {
+    code: 'M30',
+    group: 'Machine',
+    description: 'Program end and rewind',
+    usage: 'Ensure safe machine state before cycle repeats automatically.',
+  },
 ]

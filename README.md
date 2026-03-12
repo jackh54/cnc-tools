@@ -4,8 +4,11 @@ MillOps CNC Hub is a modern, mobile-friendly CNC milling web app built with Reac
 
 It provides:
 - Practical CNC calculators (spindle speed, feed rate, MRR, metric conversion)
+- Advanced process planner (chip thinning, cycle time, spindle HP/torque/load)
+- Interactive visualizations (feed curve, engagement meter, spindle load meter)
 - A structured CNC skill roadmap for milling operators and programmers
 - Tooling and shop workflow references
+- Searchable G/M code explorer
 - Material cutting-speed reference data
 - Dark mode with persisted theme selection
 
