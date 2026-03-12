@@ -1,0 +1,345 @@
+:root {
+  --background: #f2f4f8;
+  --surface: #ffffff;
+  --surface-strong: #fbfcff;
+  --surface-muted: #eef2fa;
+  --text: #122032;
+  --text-muted: #445266;
+  --border: #d8e2ee;
+  --accent: #4f6fff;
+  --accent-contrast: #ffffff;
+  --shadow: 0 20px 40px -24px rgba(16, 33, 67, 0.28);
+}
+
+:root[data-theme='dark'] {
+  --background: #091222;
+  --surface: #111c30;
+  --surface-strong: #13233c;
+  --surface-muted: #1b2a42;
+  --text: #eef5ff;
+  --text-muted: #a6b7cf;
+  --border: #243755;
+  --accent: #88a2ff;
+  --accent-contrast: #0a1528;
+  --shadow: 0 28px 50px -26px rgba(0, 0, 0, 0.65);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
+    sans-serif;
+  background: radial-gradient(circle at 20% 0%, var(--surface-muted), var(--background) 55%);
+  color: var(--text);
+  line-height: 1.45;
+}
+
+a {
+  color: inherit;
+}
+
+.app-shell {
+  width: min(1120px, 100%);
+  margin: 0 auto;
+  padding: 1.25rem 1rem 2.5rem;
+}
+
+.hero-section {
+  background: linear-gradient(150deg, var(--surface-strong), var(--surface));
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  box-shadow: var(--shadow);
+  padding: 1.25rem;
+}
+
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: center;
+}
+
+.brand {
+  margin: 0;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+}
+
+.theme-toggle {
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.45rem 0.8rem;
+  background: var(--surface-muted);
+  color: var(--text);
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  cursor: pointer;
+}
+
+.hero-content {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 1rem;
+}
+
+.eyebrow {
+  color: var(--accent);
+  margin: 0;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+h1 {
+  margin: 0.65rem 0 0;
+  font-size: clamp(1.7rem, 4vw, 2.5rem);
+  line-height: 1.12;
+}
+
+.hero-copy {
+  margin-top: 0.9rem;
+  color: var(--text-muted);
+  max-width: 60ch;
+}
+
+.hero-actions {
+  margin-top: 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.button {
+  text-decoration: none;
+  border-radius: 0.65rem;
+  font-weight: 600;
+  padding: 0.6rem 0.95rem;
+  border: 1px solid transparent;
+}
+
+.button.primary {
+  background: var(--accent);
+  color: var(--accent-contrast);
+}
+
+.button.secondary {
+  border-color: var(--border);
+  background: var(--surface-muted);
+}
+
+.content-grid {
+  margin-top: 1rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.card {
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  padding: 1rem;
+}
+
+.hero-metrics h2,
+.section-header h2 {
+  margin: 0;
+  font-size: 1.15rem;
+}
+
+.hero-metrics ul {
+  list-style: none;
+  margin: 0.85rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0.65rem;
+}
+
+.hero-metrics li {
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  padding: 0.7rem;
+  background: var(--surface-muted);
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-metrics strong {
+  font-size: 1.45rem;
+}
+
+.hero-metrics span {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.section-header p {
+  margin: 0.4rem 0 0;
+  color: var(--text-muted);
+}
+
+.calculator-grid,
+.tool-grid,
+.skill-grid {
+  margin-top: 1rem;
+  display: grid;
+  gap: 0.8rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.calculator,
+.skill-card,
+.tool-card {
+  border: 1px solid var(--border);
+  border-radius: 0.9rem;
+  background: var(--surface-strong);
+  padding: 0.8rem;
+}
+
+h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.formula {
+  margin: 0.4rem 0 0;
+  color: var(--text-muted);
+  font-size: 0.88rem;
+}
+
+label {
+  margin-top: 0.65rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+input {
+  border: 1px solid var(--border);
+  border-radius: 0.55rem;
+  padding: 0.48rem 0.58rem;
+  background: var(--surface);
+  color: var(--text);
+  font-size: 0.95rem;
+}
+
+output {
+  margin-top: 0.8rem;
+  display: inline-block;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.chip {
+  display: inline-block;
+  border-radius: 999px;
+  padding: 0.2rem 0.6rem;
+  border: 1px solid var(--border);
+  background: var(--surface-muted);
+  font-size: 0.76rem;
+  font-weight: 700;
+}
+
+.chip-muted {
+  color: var(--text-muted);
+}
+
+.skill-card p,
+.tool-card p {
+  margin: 0.55rem 0 0;
+  color: var(--text-muted);
+}
+
+.skill-card ul {
+  margin: 0.75rem 0 0;
+  padding-left: 1.1rem;
+  display: grid;
+  gap: 0.38rem;
+}
+
+.tip span {
+  color: var(--text);
+  font-weight: 700;
+}
+
+.split-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1.1fr 0.9fr;
+}
+
+.table-wrap {
+  margin-top: 0.8rem;
+  overflow-x: auto;
+  border-radius: 0.8rem;
+  border: 1px solid var(--border);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 34rem;
+  font-size: 0.9rem;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 0.55rem;
+  border-bottom: 1px solid var(--border);
+}
+
+th {
+  background: var(--surface-muted);
+}
+
+.checklist {
+  margin: 0.85rem 0 0;
+  padding-left: 1rem;
+  display: grid;
+  gap: 0.45rem;
+}
+
+.footer {
+  margin-top: 1rem;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 900px) {
+  .hero-content,
+  .split-grid,
+  .calculator-grid,
+  .tool-grid,
+  .skill-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .app-shell {
+    padding: 0.9rem 0.7rem 2rem;
+  }
+}
